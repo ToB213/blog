@@ -34,4 +34,4 @@ Webフロントエンド領域とRを使用した統計分析に興味があり�
 
 連絡のある方は，以下のメールアドレスから．
 
--   [niimicomputergraphics\@gmail.com]{style="color: #00552e;"}
+-   [**niimicomputergraphics\@gmail.com**]{style="color: #00552e;"}
