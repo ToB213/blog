@@ -12,8 +12,26 @@ github-repo: ToB213/ToB213.github.io
 description: "This site is built using the bookdown package."
 ---
 
-# About
+# Introduction
+
+## About
+
+このサイトは，*Niimi Syunya* のWebサイトです．
+
+学習の記録や思ったことを書いていきます．
+
+## Author
 
 ![](images/icon.png){width="30%"}
 
-愛知県出身の大学生です．
+愛知県出身の大学生です． 生まれは2003年です．
+
+Webフロントエンド領域とRを使用した統計分析に興味があります．
+
+ハンドルネームは*ToB*．
+
+## Connection
+
+連絡のある方は，以下のメールアドレスから．
+
+-   [niimicomputergraphics\@gmail.com]{style="color: #00552e;"}
