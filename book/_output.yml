@@ -7,7 +7,7 @@ bookdown::gitbook:
         <li><a href="./">ToB213</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/ToB213/tob213.github.io/edit/main/%s
+    edit: https://github.com/ToB213/tob213.github.io/edit/main/book/%s
     download: ["pdf", "epub"]
     search:
       engine: fuse
