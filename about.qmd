@@ -2,8 +2,14 @@
 title: "About"
 ---
 
-About this site
-
-```{r}
-1 + 1
+```{r echo=FALSE, fig.align="center", out.width = "50%", out.height = "50%"}
+knitr::include_graphics("images/icon.png")
 ```
+
+愛知県出身の大学生です． 生まれは2003年です．Webフロントエンド領域とRを使用した統計分析に興味があります．学友とゲームを開発したりもしています．
+
+基本的には何でも食す事ができ，和食，特に懐石料理が好きです．
+
+連絡のある方は，メールアドレス ([**tob213\@maslab.aitech.ac.jp**]{style="color: #00552e;"})からお願いします．GitHub([https://github.com/ToB213](https://github.com/ToB213){.uri style="text-decoration: none"})のアカウントもあります．X ([https://x.com/just_for_ToB](https://x.com/just_for_ToB){.uri style="text-decoration: none;"})では，独り言を吐いています．
+
+走馬灯は長い方が良いと思っています．

@@ -1,11 +1,5 @@
 ---
-title: "ToB213.github.io"
+title: "ToB213"
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-1 + 1
-```
+このサイト (<https://tob213.github.io>) はNiimi Syunya のWebサイトです． 学習の記録や思ったことを書いていきます．
