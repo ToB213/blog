@@ -1,6 +1,6 @@
 ---
 title: "度数分布表とヒストグラム"
-date: 2024-09-09
+date: 2024-12-08
 ---
 
 ## 準備
@@ -9,15 +9,14 @@ date: 2024-09-09
 
 使用するライブラリ: ggplot2
 
-```         
+```{r}        
 library(ggplot2)
-# 日本語フォントを使用
 theme_set( theme_bw(base_family = "HiraKakuProN-W3")) 
 ```
 
 ### データの準備
 
-```         
+```{r}
 # 男性の身長データ
 set.seed(123)
 
@@ -30,16 +29,9 @@ df <- data.frame(PersonID = 1:50, Height = round(male_height, 1))
 
 男性の身長を意識して適当なデータを作成しました．
 
+```{r}
+head(df)
 ```         
-> print(df)
-   PersonID Height
-1         1  168.1
-2         2  170.4
-3         3  182.9
-.         .    .
-.         .    .
-.         .    .
-```
 
 ## 度数分布
 
@@ -47,7 +39,13 @@ df <- data.frame(PersonID = 1:50, Height = round(male_height, 1))
 
 ## 度数分布表
 
-度数分布表は，各階級に属するデータの数を表した表で，一般的に以下の項目を含む．
+度数分布表は，各階級に属するデータの数を表した表である．
+
+N: データサイズの総数
+
+n: 階級の個数
+
+一般的に以下の項目を含む．
 
 -   階級値
 
@@ -123,10 +121,10 @@ $$
 
 今回は「スタージェスの公式」を使用します．
 
-```         
+```{r}      
 # 最大値と最小値の取得
-(max_value <- max(df$Height))
-(min_value <- min(df$Height))
+max_value <- max(df$Height)
+min_value <- min(df$Height)
 
 # 範囲の計算
 r <- max_value - min_value
@@ -140,7 +138,7 @@ k <- ceiling(1 + log2(n))
 
 ### 階級と階級値を決める
 
-```         
+```{r}
 # 階級幅の計算
 class_width <- ceiling(r / k)
 
@@ -153,79 +151,56 @@ cut_data <- cut(df$Height, breaks = class_vec, right = FALSE, include.lowest = T
 
 ### 度数を集計し，度数分布表を作成する
 
-```         
+```{r}         
 # 度数分布表を作成
 freq_table <- table(cut_data)
-```
-
-```         
-> freq_table
-cut_data
-[158,163) [163,168) [168,173) [173,178) [178,183) [183,188] 
-        2         9        16        12         7         4 
+freq_table
 ```
 
 ここで作成した度数分布表は相対度数，累積度数，累積相対度数を含みません． それぞれについて後ほど計算します．
 
 ### 累積度数の計算
 
-```         
+```{r}
 cumsum(freq_table)
-```
-
-```         
-> cumsum(freq_table)
-[158,163) [163,168) [168,173) [173,178) [178,183) [183,188] 
-        2        11        27        39        46        50 
 ```
 
 ### 相対度数の計算
 
-```         
+```{r}
 # 相対度数の計算
 relative_freq <- prop.table(freq_table)
-```
-
-```         
-> relative_freq
-cut_data
-[158,163) [163,168) [168,173) [173,178) [178,183) [183,188] 
-     0.04      0.18      0.32      0.24      0.14      0.08 
+relative_freq
 ```
 
 ### 累積相対度数の計算
 
-```         
+```{r}
 # 累積相対度数を計算
 cum_relative_freq <- cumsum(relative_freq)
-```
-
-```         
-> cum_relative_freq
-[158,163) [163,168) [168,173) [173,178) [178,183) [183,188] 
-     0.04      0.22      0.54      0.78      0.92      1.00 
+cum_relative_freq
 ```
 
 ### ヒストグラム
 
-```         
+```{r}
 # ヒストグラム
 ggplot(df, mapping = aes(x = Height)) +
   geom_histogram(bins = 14) +
   labs(x = "身長", y = "度数", title = "ヒストグラム")
 ```
 
-![](images/clipboard-4036765463.png)
-
 ### 累積相対度数折線グラフ
 
-```         
+```{r}         
 # 累積相対度数折線
-ggplot(cum_freq_df, aes(x = class, y = cum_relative_freq, group = 1)) +
+df_cum_relative_freq <- data.frame(
+  class = names(freq_table),
+  cum_relative_freq = cum_relative_freq
+)
+ggplot(df_cum_relative_freq, aes(x = class, y = cum_relative_freq, group = 1)) +
   geom_line() +
   geom_point() +
   labs(x = "身長", y = "累積相対度数", 
        title = "累積相対度数折線グラフ")
 ```
-
-![](images/clipboard-832367858.png)

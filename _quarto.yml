@@ -40,8 +40,8 @@ website:
         href: about.qmd
       - text: "Stat"
         menu: 
-          - text: "度数分布表とヒストグラム"
-            href: stat/01.qmd
+          - text: "基本統計"
+            href: stat/basic/index.qmd
       - text: "Help"
         menu:
           - text: "Report a Bug"

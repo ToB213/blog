@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://tob213.github.io/stat/basic/01/index.html</loc>
+    <lastmod>2024-12-08T08:43:54.253Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tob213.github.io/stat/basic/02/index.html</loc>
+    <lastmod>2024-12-07T08:28:38.148Z</lastmod>
+  </url>
+  <url>
     <loc>https://tob213.github.io/index.html</loc>
-    <lastmod>2024-08-27T04:31:44.969Z</lastmod>
+    <lastmod>2024-12-07T08:01:11.382Z</lastmod>
   </url>
   <url>
     <loc>https://tob213.github.io/about.html</loc>
-    <lastmod>2024-08-27T04:38:19.970Z</lastmod>
+    <lastmod>2024-12-07T08:01:12.587Z</lastmod>
   </url>
   <url>
-    <loc>https://tob213.github.io/stat/01.html</loc>
-    <lastmod>2024-09-09T07:54:07.607Z</lastmod>
+    <loc>https://tob213.github.io/stat/basic/index.html</loc>
+    <lastmod>2024-12-08T08:44:29.705Z</lastmod>
   </url>
 </urlset>

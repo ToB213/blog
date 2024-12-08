@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-09-09">
+<meta name="dcterms.date" content="2024-12-08">
 
 <title>ToB213 - 度数分布表とヒストグラム</title>
 <style>
@@ -21,25 +21,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -98,7 +132,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 <meta property="og:title" content="ToB213 - 度数分布表とヒストグラム">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="ToB213">
@@ -114,7 +148,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">ToB213</span>
     </a>
   </div>
@@ -125,11 +159,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
+    <a class="nav-link" href="../../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -138,8 +172,8 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-stat">    
         <li>
-    <a class="dropdown-item" href="../stat/01.html">
- <span class="dropdown-text">度数分布表とヒストグラム</span></a>
+    <a class="dropdown-item" href="../../../stat/basic/index.html">
+ <span class="dropdown-text">基本統計</span></a>
   </li>  
     </ul>
   </li>
@@ -204,7 +238,7 @@ window.Quarto = {
   <li><a href="#累積相対度数折線グラフ" id="toc-累積相対度数折線グラフ" class="nav-link" data-scroll-target="#累積相対度数折線グラフ">累積相対度数折線グラフ</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/ToB213/Tob213.github.io/edit/main/stat/01.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ToB213/ToB213.github.io/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/ToB213/Tob213.github.io/edit/main/stat/basic/01/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ToB213/ToB213.github.io/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -222,7 +256,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 9, 2024</p>
+      <p class="date">December 8, 2024</p>
     </div>
   </div>
   
@@ -239,29 +273,36 @@ window.Quarto = {
 <section id="プロジェクトの設定" class="level3">
 <h3 class="anchored" data-anchor-id="プロジェクトの設定">プロジェクトの設定</h3>
 <p>使用するライブラリ: ggplot2</p>
-<pre><code>library(ggplot2)
-# 日本語フォントを使用
-theme_set( theme_bw(base_family = "HiraKakuProN-W3")) </code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>( <span class="fu">theme_bw</span>(<span class="at">base_family =</span> <span class="st">"HiraKakuProN-W3"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="データの準備" class="level3">
 <h3 class="anchored" data-anchor-id="データの準備">データの準備</h3>
-<pre><code># 男性の身長データ
-set.seed(123)
-
-# 男性の身長データ（平均172cm、標準偏差7cm）
-male_height &lt;- rnorm(50, mean = 172, sd = 7)
-
-# データフレームに変換
-df &lt;- data.frame(PersonID = 1:50, Height = round(male_height, 1))</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 男性の身長データ</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 男性の身長データ（平均172cm、標準偏差7cm）</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>male_height <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="at">mean =</span> <span class="dv">172</span>, <span class="at">sd =</span> <span class="dv">7</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># データフレームに変換</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">PersonID =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>, <span class="at">Height =</span> <span class="fu">round</span>(male_height, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>男性の身長を意識して適当なデータを作成しました．</p>
-<pre><code>&gt; print(df)
-   PersonID Height
-1         1  168.1
-2         2  170.4
-3         3  182.9
-.         .    .
-.         .    .
-.         .    .</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  PersonID Height
+1        1  168.1
+2        2  170.4
+3        3  182.9
+4        4  172.5
+5        5  172.9
+6        6  184.0</code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="度数分布" class="level2">
@@ -270,7 +311,10 @@ df &lt;- data.frame(PersonID = 1:50, Height = round(male_height, 1))</code></pre
 </section>
 <section id="度数分布表" class="level2">
 <h2 class="anchored" data-anchor-id="度数分布表">度数分布表</h2>
-<p>度数分布表は，各階級に属するデータの数を表した表で，一般的に以下の項目を含む．</p>
+<p>度数分布表は，各階級に属するデータの数を表した表である．</p>
+<p>N: データサイズの総数</p>
+<p>n: 階級の個数</p>
+<p>一般的に以下の項目を含む．</p>
 <ul>
 <li><p>階級値</p></li>
 <li><p>度数</p></li>
@@ -331,81 +375,120 @@ n = 1 + \frac{\log_{10}{N}}{\log_{10}{2}} = 1 + \log{N}
 n = 1.7\sqrt[3]{N}
 \]</span></p>
 <p>今回は「スタージェスの公式」を使用します．</p>
-<pre><code># 最大値と最小値の取得
-(max_value &lt;- max(df$Height))
-(min_value &lt;- min(df$Height))
-
-# 範囲の計算
-r &lt;- max_value - min_value
-
-# データの個数を取得
-n &lt;- length(df$PersonID)
-
-# スタージェスの公式で階級数を計算
-k &lt;- ceiling(1 + log2(n))</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 最大値と最小値の取得</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>max_value <span class="ot">&lt;-</span> <span class="fu">max</span>(df<span class="sc">$</span>Height)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>min_value <span class="ot">&lt;-</span> <span class="fu">min</span>(df<span class="sc">$</span>Height)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 範囲の計算</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> max_value <span class="sc">-</span> min_value</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># データの個数を取得</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(df<span class="sc">$</span>PersonID)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># スタージェスの公式で階級数を計算</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="fu">log2</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="階級と階級値を決める" class="level3">
 <h3 class="anchored" data-anchor-id="階級と階級値を決める">階級と階級値を決める</h3>
-<pre><code># 階級幅の計算
-class_width &lt;- ceiling(r / k)
-
-# 階級用の値を作成（最小値から階級幅ごとの数列を生成）
-class_vec &lt;- seq(from = min_value, to = max_value + class_width, by = class_width)
-
-# 階級値の計算（right=FALSEだと左側の境界を含み、右側は含まない）
-cut_data &lt;- cut(df$Height, breaks = class_vec, right = FALSE, include.lowest = TRUE)</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 階級幅の計算</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>class_width <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(r <span class="sc">/</span> k)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 階級用の値を作成（最小値から階級幅ごとの数列を生成）</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>class_vec <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> min_value, <span class="at">to =</span> max_value <span class="sc">+</span> class_width, <span class="at">by =</span> class_width)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 階級値の計算（right=FALSEだと左側の境界を含み、右側は含まない）</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>cut_data <span class="ot">&lt;-</span> <span class="fu">cut</span>(df<span class="sc">$</span>Height, <span class="at">breaks =</span> class_vec, <span class="at">right =</span> <span class="cn">FALSE</span>, <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="度数を集計し度数分布表を作成する" class="level3">
 <h3 class="anchored" data-anchor-id="度数を集計し度数分布表を作成する">度数を集計し，度数分布表を作成する</h3>
-<pre><code># 度数分布表を作成
-freq_table &lt;- table(cut_data)</code></pre>
-<pre><code>&gt; freq_table
-cut_data
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 度数分布表を作成</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>freq_table <span class="ot">&lt;-</span> <span class="fu">table</span>(cut_data)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>freq_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>cut_data
 [158,163) [163,168) [168,173) [173,178) [178,183) [183,188] 
-        2         9        16        12         7         4 </code></pre>
+        4        10        16        12         5         3 </code></pre>
+</div>
+</div>
 <p>ここで作成した度数分布表は相対度数，累積度数，累積相対度数を含みません． それぞれについて後ほど計算します．</p>
 </section>
 <section id="累積度数の計算" class="level3">
 <h3 class="anchored" data-anchor-id="累積度数の計算">累積度数の計算</h3>
-<pre><code>cumsum(freq_table)</code></pre>
-<pre><code>&gt; cumsum(freq_table)
-[158,163) [163,168) [168,173) [173,178) [178,183) [183,188] 
-        2        11        27        39        46        50 </code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cumsum</span>(freq_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[158,163) [163,168) [168,173) [173,178) [178,183) [183,188] 
+        4        14        30        42        47        50 </code></pre>
+</div>
+</div>
 </section>
 <section id="相対度数の計算" class="level3">
 <h3 class="anchored" data-anchor-id="相対度数の計算">相対度数の計算</h3>
-<pre><code># 相対度数の計算
-relative_freq &lt;- prop.table(freq_table)</code></pre>
-<pre><code>&gt; relative_freq
-cut_data
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 相対度数の計算</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>relative_freq <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(freq_table)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>relative_freq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>cut_data
 [158,163) [163,168) [168,173) [173,178) [178,183) [183,188] 
-     0.04      0.18      0.32      0.24      0.14      0.08 </code></pre>
+     0.08      0.20      0.32      0.24      0.10      0.06 </code></pre>
+</div>
+</div>
 </section>
 <section id="累積相対度数の計算" class="level3">
 <h3 class="anchored" data-anchor-id="累積相対度数の計算">累積相対度数の計算</h3>
-<pre><code># 累積相対度数を計算
-cum_relative_freq &lt;- cumsum(relative_freq)</code></pre>
-<pre><code>&gt; cum_relative_freq
-[158,163) [163,168) [168,173) [173,178) [178,183) [183,188] 
-     0.04      0.22      0.54      0.78      0.92      1.00 </code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 累積相対度数を計算</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>cum_relative_freq <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(relative_freq)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>cum_relative_freq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[158,163) [163,168) [168,173) [173,178) [178,183) [183,188] 
+     0.08      0.28      0.60      0.84      0.94      1.00 </code></pre>
+</div>
+</div>
 </section>
 <section id="ヒストグラム" class="level3">
 <h3 class="anchored" data-anchor-id="ヒストグラム">ヒストグラム</h3>
-<pre><code># ヒストグラム
-ggplot(df, mapping = aes(x = Height)) +
-  geom_histogram(bins = 14) +
-  labs(x = "身長", y = "度数", title = "ヒストグラム")</code></pre>
-<p><img src="images/clipboard-4036765463.png" class="img-fluid"></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ヒストグラム</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Height)) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"身長"</span>, <span class="at">y =</span> <span class="st">"度数"</span>, <span class="at">title =</span> <span class="st">"ヒストグラム"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="累積相対度数折線グラフ" class="level3">
 <h3 class="anchored" data-anchor-id="累積相対度数折線グラフ">累積相対度数折線グラフ</h3>
-<pre><code># 累積相対度数折線
-ggplot(cum_freq_df, aes(x = class, y = cum_relative_freq, group = 1)) +
-  geom_line() +
-  geom_point() +
-  labs(x = "身長", y = "累積相対度数", 
-       title = "累積相対度数折線グラフ")</code></pre>
-<p><img src="images/clipboard-832367858.png" class="img-fluid"></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 累積相対度数折線</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df_cum_relative_freq <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">class =</span> <span class="fu">names</span>(freq_table),</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">cum_relative_freq =</span> cum_relative_freq</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_cum_relative_freq, <span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> cum_relative_freq, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"身長"</span>, <span class="at">y =</span> <span class="st">"累積相対度数"</span>, </span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"累積相対度数折線グラフ"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -830,17 +913,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../index.html">
+    <a class="nav-link" href="../../../index.html">
 <p>Home</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../about.html">
+    <a class="nav-link" href="../../../about.html">
 <p>About</p>
 </a>
   </li>  
 </ul>
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ToB213/Tob213.github.io/edit/main/stat/01.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ToB213/ToB213.github.io/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ToB213/Tob213.github.io/edit/main/stat/basic/01/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ToB213/ToB213.github.io/issues" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

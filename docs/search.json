@@ -1,10 +1,45 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "stat/basic/01/index.html",
+    "href": "stat/basic/01/index.html",
+    "title": "度数分布表とヒストグラム",
     "section": "",
-    "text": "愛知県出身の大学生です． 生まれは2003年です．Webフロントエンド領域とRを使用した統計分析に興味があります．学友とゲームを開発したりもしています．\n基本的には何でも食す事ができ，和食，特に懐石料理が好きです．\n連絡のある方は，メールアドレス (tob213@maslab.aitech.ac.jp)からお願いします．GitHub(https://github.com/ToB213)のアカウントもあります．X (https://x.com/just_for_ToB)では，独り言を吐いています．\n走馬灯は長い方が良いと思っています．"
+    "text": "使用するライブラリ: ggplot2\n\nlibrary(ggplot2)\ntheme_set( theme_bw(base_family = \"HiraKakuProN-W3\")) \n\n\n\n\n\n# 男性の身長データ\nset.seed(123)\n\n# 男性の身長データ（平均172cm、標準偏差7cm）\nmale_height &lt;- rnorm(50, mean = 172, sd = 7)\n\n# データフレームに変換\ndf &lt;- data.frame(PersonID = 1:50, Height = round(male_height, 1))\n\n男性の身長を意識して適当なデータを作成しました．\n\nhead(df)\n\n  PersonID Height\n1        1  168.1\n2        2  170.4\n3        3  182.9\n4        4  172.5\n5        5  172.9\n6        6  184.0"
+  },
+  {
+    "objectID": "stat/basic/01/index.html#準備",
+    "href": "stat/basic/01/index.html#準備",
+    "title": "度数分布表とヒストグラム",
+    "section": "",
+    "text": "使用するライブラリ: ggplot2\n\nlibrary(ggplot2)\ntheme_set( theme_bw(base_family = \"HiraKakuProN-W3\")) \n\n\n\n\n\n# 男性の身長データ\nset.seed(123)\n\n# 男性の身長データ（平均172cm、標準偏差7cm）\nmale_height &lt;- rnorm(50, mean = 172, sd = 7)\n\n# データフレームに変換\ndf &lt;- data.frame(PersonID = 1:50, Height = round(male_height, 1))\n\n男性の身長を意識して適当なデータを作成しました．\n\nhead(df)\n\n  PersonID Height\n1        1  168.1\n2        2  170.4\n3        3  182.9\n4        4  172.5\n5        5  172.9\n6        6  184.0"
+  },
+  {
+    "objectID": "stat/basic/01/index.html#度数分布",
+    "href": "stat/basic/01/index.html#度数分布",
+    "title": "度数分布表とヒストグラム",
+    "section": "度数分布",
+    "text": "度数分布\nデータをいくつかの範囲（階級）に分けて，その範囲に属するデータの数（度数）をまとめたもの．データの全体的な傾向を視覚的に把握するのに役立つ．"
+  },
+  {
+    "objectID": "stat/basic/01/index.html#度数分布表",
+    "href": "stat/basic/01/index.html#度数分布表",
+    "title": "度数分布表とヒストグラム",
+    "section": "度数分布表",
+    "text": "度数分布表\n度数分布表は，各階級に属するデータの数を表した表である．\nN: データサイズの総数\nn: 階級の個数\n一般的に以下の項目を含む．\n\n階級値\n度数\n相対度数\n累積度数\n累積相対度数\n\n\n階級値 \\(x_{n}\\)\n階級を代表する値であり階級の中央値をとる．\n\\[\nx_{n} = \\frac{a_{n-1} + a_{n}}{2}\n\\]\n代表的な階級数の求め方は後述する．\n\n\n度数 \\(f_{n}\\)\n階級に属するデータの個数\n\n\n相対度数 \\(p\\)\n全体に対し各度数が占める割合\n\\[\np = \\frac{f_{n}}{N}\n\\]\n\n\n累積度数 \\(F_{n}\\)\nその階級までの度数の総和\n\\[\nF_{n} = f_{1} + f_{2} + ... + f_{n}\n\\]\n\n\n累積相対度数 \\(P\\)\n全体に対し各累積度数が占める割合\n\\[\nP = \\frac{F_{n}}{N}\n\\]"
+  },
+  {
+    "objectID": "stat/basic/01/index.html#度数分布表の作り方",
+    "href": "stat/basic/01/index.html#度数分布表の作り方",
+    "title": "度数分布表とヒストグラム",
+    "section": "度数分布表の作り方",
+    "text": "度数分布表の作り方\n\n1. レンジ\\(R\\)と階級数\\(n\\)を求める\n\\[\nR = Max - Min\n\\]\n\\[\nn = 1 + \\log{N}\n\\]\n階級数の計算方法にはいくつかの方法がある．もっとも一般的に使われる方法は「スタージェスの公式」です．\n\\[\nn = 1 + \\frac{\\log_{10}{N}}{\\log_{10}{2}} = 1 + \\log{N}\n\\]\n他には「鈴木の公式」などがあります．\n\\[\nn = 1.7\\sqrt[3]{N}\n\\]\n今回は「スタージェスの公式」を使用します．\n\n# 最大値と最小値の取得\nmax_value &lt;- max(df$Height)\nmin_value &lt;- min(df$Height)\n\n# 範囲の計算\nr &lt;- max_value - min_value\n\n# データの個数を取得\nn &lt;- length(df$PersonID)\n\n# スタージェスの公式で階級数を計算\nk &lt;- ceiling(1 + log2(n))\n\n\n\n階級と階級値を決める\n\n# 階級幅の計算\nclass_width &lt;- ceiling(r / k)\n\n# 階級用の値を作成（最小値から階級幅ごとの数列を生成）\nclass_vec &lt;- seq(from = min_value, to = max_value + class_width, by = class_width)\n\n# 階級値の計算（right=FALSEだと左側の境界を含み、右側は含まない）\ncut_data &lt;- cut(df$Height, breaks = class_vec, right = FALSE, include.lowest = TRUE)\n\n\n\n度数を集計し，度数分布表を作成する\n\n# 度数分布表を作成\nfreq_table &lt;- table(cut_data)\nfreq_table\n\ncut_data\n[158,163) [163,168) [168,173) [173,178) [178,183) [183,188] \n        4        10        16        12         5         3 \n\n\nここで作成した度数分布表は相対度数，累積度数，累積相対度数を含みません． それぞれについて後ほど計算します．\n\n\n累積度数の計算\n\ncumsum(freq_table)\n\n[158,163) [163,168) [168,173) [173,178) [178,183) [183,188] \n        4        14        30        42        47        50 \n\n\n\n\n相対度数の計算\n\n# 相対度数の計算\nrelative_freq &lt;- prop.table(freq_table)\nrelative_freq\n\ncut_data\n[158,163) [163,168) [168,173) [173,178) [178,183) [183,188] \n     0.08      0.20      0.32      0.24      0.10      0.06 \n\n\n\n\n累積相対度数の計算\n\n# 累積相対度数を計算\ncum_relative_freq &lt;- cumsum(relative_freq)\ncum_relative_freq\n\n[158,163) [163,168) [168,173) [173,178) [178,183) [183,188] \n     0.08      0.28      0.60      0.84      0.94      1.00 \n\n\n\n\nヒストグラム\n\n# ヒストグラム\nggplot(df, mapping = aes(x = Height)) +\n  geom_histogram(bins = 14) +\n  labs(x = \"身長\", y = \"度数\", title = \"ヒストグラム\")\n\n\n\n\n\n\n\n\n\n\n累積相対度数折線グラフ\n\n# 累積相対度数折線\ndf_cum_relative_freq &lt;- data.frame(\n  class = names(freq_table),\n  cum_relative_freq = cum_relative_freq\n)\nggplot(df_cum_relative_freq, aes(x = class, y = cum_relative_freq, group = 1)) +\n  geom_line() +\n  geom_point() +\n  labs(x = \"身長\", y = \"累積相対度数\", \n       title = \"累積相対度数折線グラフ\")"
+  },
+  {
+    "objectID": "stat/basic/02/index.html",
+    "href": "stat/basic/02/index.html",
+    "title": "正規分布",
+    "section": "",
+    "text": "curve(dnorm, -5, 5)"
   },
   {
     "objectID": "index.html",
@@ -14,52 +49,17 @@
     "text": "このサイト (https://tob213.github.io) はNiimi Syunya のWebサイトです． 学習の記録や思ったことを書いていきます．"
   },
   {
-    "objectID": "stat/01.html",
-    "href": "stat/01.html",
-    "title": "度数分布表とヒストグラム",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "使用するライブラリ: ggplot2\nlibrary(ggplot2)\n# 日本語フォントを使用\ntheme_set( theme_bw(base_family = \"HiraKakuProN-W3\")) \n\n\n\n# 男性の身長データ\nset.seed(123)\n\n# 男性の身長データ（平均172cm、標準偏差7cm）\nmale_height &lt;- rnorm(50, mean = 172, sd = 7)\n\n# データフレームに変換\ndf &lt;- data.frame(PersonID = 1:50, Height = round(male_height, 1))\n男性の身長を意識して適当なデータを作成しました．\n&gt; print(df)\n   PersonID Height\n1         1  168.1\n2         2  170.4\n3         3  182.9\n.         .    .\n.         .    .\n.         .    ."
+    "text": "愛知県出身の大学生です． 生まれは2003年です．\n基本的には何でも食す事ができ，和食，特に懐石料理が好きです．\n連絡のある方は，メールアドレス (tob213@maslab.aitech.ac.jp)からお願いします．GitHub(https://github.com/ToB213)のアカウントもあります．X (https://x.com/just_for_ToB)では，独り言を吐いています．"
   },
   {
-    "objectID": "stat/01.html#度数分布表とは",
-    "href": "stat/01.html#度数分布表とは",
-    "title": "度数分布表とヒストグラム",
+    "objectID": "stat/basic/index.html",
+    "href": "stat/basic/index.html",
+    "title": "まとめページ",
     "section": "",
-    "text": "データをいくつかの範囲（階級）に分けて，その範囲に属するデータの数（度数）をグラフで表したもの．"
-  },
-  {
-    "objectID": "stat/01.html#度数分布とは",
-    "href": "stat/01.html#度数分布とは",
-    "title": "度数分布表とヒストグラム",
-    "section": "",
-    "text": "データをいくつかの範囲（階級）に分けて，その範囲に属するデータの数（度数）をまとめたもの．データの全体的な傾向を視覚的に把握するのに役立つ．"
-  },
-  {
-    "objectID": "stat/01.html#度数分布",
-    "href": "stat/01.html#度数分布",
-    "title": "度数分布表とヒストグラム",
-    "section": "度数分布",
-    "text": "度数分布\nデータをいくつかの範囲（階級）に分けて，その範囲に属するデータの数（度数）をまとめたもの．データの全体的な傾向を視覚的に把握するのに役立つ．"
-  },
-  {
-    "objectID": "stat/01.html#度数分布表",
-    "href": "stat/01.html#度数分布表",
-    "title": "度数分布表とヒストグラム",
-    "section": "度数分布表",
-    "text": "度数分布表\n度数分布表は，各階級に属するデータの数を表した表で，一般的に以下の項目を含む．\n\n階級値\n度数\n相対度数\n累積度数\n累積相対度数\n\n\n階級値 \\(x_{n}\\)\n階級を代表する値であり階級の中央値をとる．\n\\[\nx_{n} = \\frac{a_{n-1} + a_{n}}{2}\n\\]\n代表的な階級数の求め方は後述する．\n\n\n度数 \\(f_{n}\\)\n階級に属するデータの個数\n\n\n相対度数 \\(p\\)\n全体に対し各度数が占める割合\n\\[\np = \\frac{f_{n}}{N}\n\\]\n\n\n累積度数 \\(F_{n}\\)\nその階級までの度数の総和\n\\[\nF_{n} = f_{1} + f_{2} + ... + f_{n}\n\\]\n\n\n累積相対度数 \\(P\\)\n全体に対し各累積度数が占める割合\n\\[\nP = \\frac{F_{n}}{N}\n\\]"
-  },
-  {
-    "objectID": "stat/01.html#準備",
-    "href": "stat/01.html#準備",
-    "title": "度数分布表とヒストグラム",
-    "section": "",
-    "text": "使用するライブラリ: ggplot2\nlibrary(ggplot2)\n# 日本語フォントを使用\ntheme_set( theme_bw(base_family = \"HiraKakuProN-W3\")) \n\n\n\n# 男性の身長データ\nset.seed(123)\n\n# 男性の身長データ（平均172cm、標準偏差7cm）\nmale_height &lt;- rnorm(50, mean = 172, sd = 7)\n\n# データフレームに変換\ndf &lt;- data.frame(PersonID = 1:50, Height = round(male_height, 1))\n男性の身長を意識して適当なデータを作成しました．\n&gt; print(df)\n   PersonID Height\n1         1  168.1\n2         2  170.4\n3         3  182.9\n.         .    .\n.         .    .\n.         .    ."
-  },
-  {
-    "objectID": "stat/01.html#度数分布表の作り方",
-    "href": "stat/01.html#度数分布表の作り方",
-    "title": "度数分布表とヒストグラム",
-    "section": "度数分布表の作り方",
-    "text": "度数分布表の作り方\n\n1. レンジ\\(R\\)と階級数\\(n\\)を求める\n\\[\nR = Max - Min\n\\]\n\\[\nn = 1 + \\log{N}\n\\]\n階級数の計算方法にはいくつかの方法がある．もっとも一般的に使われる方法は「スタージェスの公式」です．\n\\[\nn = 1 + \\frac{\\log_{10}{N}}{\\log_{10}{2}} = 1 + \\log{N}\n\\]\n他には「鈴木の公式」などがあります．\n\\[\nn = 1.7\\sqrt[3]{N}\n\\]\n今回は「スタージェスの公式」を使用します．\n# 最大値と最小値の取得\n(max_value &lt;- max(df$Height))\n(min_value &lt;- min(df$Height))\n\n# 範囲の計算\nr &lt;- max_value - min_value\n\n# データの個数を取得\nn &lt;- length(df$PersonID)\n\n# スタージェスの公式で階級数を計算\nk &lt;- ceiling(1 + log2(n))\n\n\n階級と階級値を決める\n# 階級幅の計算\nclass_width &lt;- ceiling(r / k)\n\n# 階級用の値を作成（最小値から階級幅ごとの数列を生成）\nclass_vec &lt;- seq(from = min_value, to = max_value + class_width, by = class_width)\n\n# 階級値の計算（right=FALSEだと左側の境界を含み、右側は含まない）\ncut_data &lt;- cut(df$Height, breaks = class_vec, right = FALSE, include.lowest = TRUE)\n\n\n度数を集計し，度数分布表を作成する\n# 度数分布表を作成\nfreq_table &lt;- table(cut_data)\n&gt; freq_table\ncut_data\n[158,163) [163,168) [168,173) [173,178) [178,183) [183,188] \n        2         9        16        12         7         4 \nここで作成した度数分布表は相対度数，累積度数，累積相対度数を含みません． それぞれについて後ほど計算します．\n\n\n累積度数の計算\ncumsum(freq_table)\n&gt; cumsum(freq_table)\n[158,163) [163,168) [168,173) [173,178) [178,183) [183,188] \n        2        11        27        39        46        50 \n\n\n相対度数の計算\n# 相対度数の計算\nrelative_freq &lt;- prop.table(freq_table)\n&gt; relative_freq\ncut_data\n[158,163) [163,168) [168,173) [173,178) [178,183) [183,188] \n     0.04      0.18      0.32      0.24      0.14      0.08 \n\n\n累積相対度数の計算\n# 累積相対度数を計算\ncum_relative_freq &lt;- cumsum(relative_freq)\n&gt; cum_relative_freq\n[158,163) [163,168) [168,173) [173,178) [178,183) [183,188] \n     0.04      0.22      0.54      0.78      0.92      1.00 \n\n\nヒストグラム\n# ヒストグラム\nggplot(df, mapping = aes(x = Height)) +\n  geom_histogram(bins = 14) +\n  labs(x = \"身長\", y = \"度数\", title = \"ヒストグラム\")\n\n\n\n累積相対度数折線グラフ\n# 累積相対度数折線\nggplot(cum_freq_df, aes(x = class, y = cum_relative_freq, group = 1)) +\n  geom_line() +\n  geom_point() +\n  labs(x = \"身長\", y = \"累積相対度数\", \n       title = \"累積相対度数折線グラフ\")"
+    "text": "基本統計\n\n度数分布表とヒストグラム\n正規分布"
   }
 ]
