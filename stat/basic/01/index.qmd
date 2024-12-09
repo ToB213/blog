@@ -9,7 +9,7 @@ date: 2024-12-08
 
 使用するライブラリ: ggplot2
 
-```{r}        
+```{r}
 library(ggplot2)
 theme_set( theme_bw(base_family = "HiraKakuProN-W3")) 
 ```
@@ -31,7 +31,7 @@ df <- data.frame(PersonID = 1:50, Height = round(male_height, 1))
 
 ```{r}
 head(df)
-```         
+```
 
 ## 度数分布
 
@@ -121,7 +121,7 @@ $$
 
 今回は「スタージェスの公式」を使用します．
 
-```{r}      
+```{r}
 # 最大値と最小値の取得
 max_value <- max(df$Height)
 min_value <- min(df$Height)
@@ -151,7 +151,7 @@ cut_data <- cut(df$Height, breaks = class_vec, right = FALSE, include.lowest = T
 
 ### 度数を集計し，度数分布表を作成する
 
-```{r}         
+```{r}
 # 度数分布表を作成
 freq_table <- table(cut_data)
 freq_table
@@ -192,7 +192,7 @@ ggplot(df, mapping = aes(x = Height)) +
 
 ### 累積相対度数折線グラフ
 
-```{r}         
+```{r}
 # 累積相対度数折線
 df_cum_relative_freq <- data.frame(
   class = names(freq_table),

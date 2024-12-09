@@ -39,7 +39,84 @@
     "href": "stat/basic/02/index.html",
     "title": "正規分布",
     "section": "",
-    "text": "curve(dnorm, -5, 5)"
+    "text": "左右対称のツリガネ型で，頂点の位置の値が平均となる分布"
+  },
+  {
+    "objectID": "stat/basic/02/index.html#正規分布とは",
+    "href": "stat/basic/02/index.html#正規分布とは",
+    "title": "正規分布",
+    "section": "",
+    "text": "左右対称のツリガネ型で，頂点の位置の値が平均となる分布"
+  },
+  {
+    "objectID": "stat/basic/02/index.html#正規分布の表し方",
+    "href": "stat/basic/02/index.html#正規分布の表し方",
+    "title": "正規分布",
+    "section": "正規分布の表し方",
+    "text": "正規分布の表し方\n\\(\\mu\\)を平均値，\\(\\sigma\\)を標準偏差とすると以下の式で表される\n\\[\nN(\\mu, \\sigma^2)\n\\] また，確率変数\\(X\\)が一次元正規分布に従う場合，\\(X \\sim N(\\mu, \\sigma^2)\\)と表記する"
+  },
+  {
+    "objectID": "stat/basic/02/index.html#正規分布の性質",
+    "href": "stat/basic/02/index.html#正規分布の性質",
+    "title": "正規分布",
+    "section": "正規分布の性質",
+    "text": "正規分布の性質\n\n正規分布は左右対称\n\n\\[\n最頻値=平均値=中央値\n\\]\n\n平均変化 -&gt; 左右にシフト\n標準偏差変化 -&gt; 山の形が変化\n\n\n\n\n\n\n\n\n\n\n平均が40から50に変化した正規分布\n\n\n\n\n\n\n\n\n\n標準偏差が15から30に変化した正規分布"
+  },
+  {
+    "objectID": "stat/basic/02/index.html#正規分布と確率の関係",
+    "href": "stat/basic/02/index.html#正規分布と確率の関係",
+    "title": "正規分布",
+    "section": "正規分布と確率の関係",
+    "text": "正規分布と確率の関係\n\\(a\\)から\\(b\\)の区間にデータが存在する確率変数\\(X\\)を以下のように表す\n\\[\nP(a \\leq X \\leq b)\n\\]\nこのとき，\\(X\\)が正規分布に従っているとすると，以下のような関係になる\n\\[\nP(\\mu - \\sigma \\leq X \\leq \\mu + \\sigma) \\approx 68.268 \\%\n\\]\n\\[\nP(\\mu - 2\\sigma \\leq X \\leq \\mu + 2\\sigma) \\approx 95.450 \\% \\\\\n\\]"
+  },
+  {
+    "objectID": "stat/basic/02/index.html#zスコア",
+    "href": "stat/basic/02/index.html#zスコア",
+    "title": "正規分布",
+    "section": "Zスコア",
+    "text": "Zスコア\n\\[\nP(\\mu - k\\sigma \\leq X \\leq \\mu + k\\sigma)\n\\]\nにおける確率は，標準偏差\\(\\sigma\\)の係数\\(k\\)に依存する\nこのとき，\\(k\\)は標準正規分布におけるZスコアという\n\n個々のデータ点\\(x_i\\)が，平均値\\(\\mu\\)から標準偏差\\(\\sigma\\)の何倍離れているかを示す指標\nZスコアの絶対値が大きいほど、データ点\\(x_i\\)は平均値\\(\\mu\\)から遠い\n標準偏差\\(\\sigma\\)の係数\\(k\\)が大きくなるほど，平均値\\(\\mu\\)からの値の範囲が広がり，その範囲内にデータが存在する確率が高くなる\n\n\\[\nz_i = \\frac{x_i - \\mu}{\\sigma}\n\\]"
+  },
+  {
+    "objectID": "stat/basic/02/index.html#標準正規分布",
+    "href": "stat/basic/02/index.html#標準正規分布",
+    "title": "正規分布",
+    "section": "標準正規分布",
+    "text": "標準正規分布\n\\(\\mu = 0, \\sigma = 1\\)の正規分布を標準正規分布という\n\\[\nN(0, 1^2)\n\\]"
+  },
+  {
+    "objectID": "stat/basic/02/index.html#正規分布と標準正規分布の関係",
+    "href": "stat/basic/02/index.html#正規分布と標準正規分布の関係",
+    "title": "正規分布",
+    "section": "正規分布と標準正規分布の関係",
+    "text": "正規分布と標準正規分布の関係\n\n元の分布が正規分布ならば，標準正規分布\\(N(0, 1^2)\\)に変換できる．この変換を標準化という\n与えられた\\(x_o\\)に対し，\\(z_0 = \\frac{x_0 - \\mu}{\\sigma}(\\sigma&gt;0)\\)と定めると， \\(N(\\mu, \\sigma^2)\\)の世界での\\(P(X \\leq x_0)\\)は\\(N(0, 1^2)\\)の世界での\\(P(Z\\leq z_0)\\)となる\n\n\\[\nP(X \\leq x_0) = P\\left( \\frac{X - \\mu}{\\sigma} \\leq \\frac{x_0 - \\mu}{\\sigma} \\right) = P(Z \\leq z_0)\n\\]"
+  },
+  {
+    "objectID": "stat/basic/02/index.html#標準正規分布におけるzスコア確率の求め方",
+    "href": "stat/basic/02/index.html#標準正規分布におけるzスコア確率の求め方",
+    "title": "正規分布",
+    "section": "標準正規分布におけるZスコア，確率の求め方",
+    "text": "標準正規分布におけるZスコア，確率の求め方\n\n確率からZスコアを求める\n信頼度95%のZスコア\n\n両側検定：信頼区間は通常量側検定に基づいて計算される．つまり，分布の両端に\\(2.5\\%\\)ずつの領域を残す\n片側検定：従って探す確率は\\(1-(\\frac{0.05}{2}) = 0.975\\)となる\nZスコアの取得\n\n\nqnorm(0.975)\n\n[1] 1.959964\n\n\nよって，\n\\[\nP(\\mu - 1.96\\sigma \\leq X \\leq \\mu + 1.96\\sigma) \\approx 0.95\n\\]\n\n\nZスコアから確率を求める\n\\(z_0 = 2.58\\)の確率\n\npnorm(2.58)\n\n[1] 0.99506\n\n\nよって，\n\\[\nP(\\mu - 2.58\\sigma \\leq X \\leq \\mu + 2.58\\sigma) \\approx 0.99\n\\]"
+  },
+  {
+    "objectID": "stat/basic/02/index.html#偏差値",
+    "href": "stat/basic/02/index.html#偏差値",
+    "title": "正規分布",
+    "section": "偏差値",
+    "text": "偏差値\nあるデータが正規分布に従っていると仮定して，それぞれの平均値\\(\\mu\\)，標準偏差\\(\\sigma\\)に変換したもの\nデータ\\(X_i\\)の偏差値\\(v_i\\)は以下の式で示される\n\\[\nv_i = 50 + 10 \\times \\frac{x_i - \\mu}{\\sigma} = 50 + 10 z_i\n\\]\n\nあるテストの点数の偏差値を計算しよう\n\n# 平均 70　標準偏差 15 の正規分布に従う乱数を 10 個生成し，小数点以下を四捨五入\nset.seed(123)\nscores &lt;- rnorm(10, mean = 70, sd = 15)\nscores &lt;- round(scores, 0)\n\nprint(scores)\n\n [1] 62 67 93 71 72 96 77 51 60 63\n\n\n\n# 各点数から平均値を引き，標準偏差で割ることで標準化\n# 10 を掛けて 50 を足すことで，平均 50　標準偏差 10 のスケールに変換\ndeviation_scores &lt;- 10 * (scores - mean(scores)) / sd(scores) + 50\n\nprint(deviation_scores)\n\n [1] 43.54393 47.05266 65.29809 49.85965 50.56140 67.40333 54.07013 35.82471\n [9] 42.14043 44.24567"
+  },
+  {
+    "objectID": "stat/basic/02/index.html#qqプロットとは",
+    "href": "stat/basic/02/index.html#qqプロットとは",
+    "title": "正規分布",
+    "section": "QQプロットとは",
+    "text": "QQプロットとは\n2つのデータセットの分位点を比較することで，それらの分布の類似性を視覚的に評価する手法\n\n\n\n\n\n\n\n\n\nまた，横軸のデータを正規分布にしたQQプロットを正規QQプロットという．"
+  },
+  {
+    "objectID": "stat/basic/02/index.html#qqプロットの描画",
+    "href": "stat/basic/02/index.html#qqプロットの描画",
+    "title": "正規分布",
+    "section": "QQプロットの描画",
+    "text": "QQプロットの描画\n\nデータの準備\n今回は正規分布とt分布を使用\n\n# 必要なパッケージ\nlibrary(ggplot2)\n\n# サンプルデータ生成\nset.seed(123)\nn &lt;- 100\nnormal_data &lt;- rnorm(n)\nt_data &lt;- rt(n, df = 3)  # 自由度 3 のt分布\n\n# データフレーム作成\ndf &lt;- data.frame(\n  Data = c(normal_data, t_data),\n  Distribution = factor(rep(c(\"Normal\", \"t(df=3)\"), each = n))\n)\n\n\n\nQQプロットの描画\n\n# ggplot2でQQプロットを作成\nggplot(df, aes(sample = Data, color = Distribution)) +\n  stat_qq() +\n  stat_qq_line() + # 標準正規分布に対応する基準線\n  facet_wrap(~ Distribution) +  # 分布ごとに分割\n  labs(title = \"QQ Plots for Different Distributions\",\n       x = \"Theoretical Quantiles\",\n       y = \"Sample Quantiles\") +\n  scale_color_manual(values = c(\"Normal\" = \"blue\", \"t(df=3)\" = \"green\")) + # 色指定\n  theme_bw() +\n  theme(legend.position = \"bottom\") # 凡例の位置"
   },
   {
     "objectID": "index.html",
